@@ -8,7 +8,23 @@
     <title>ByteChef</title>
   </head>
   <body>
+    <script type="module">
+      const isWorkflowBuilder = window.location.pathname.includes('/embedded/');
+
+      if (isWorkflowBuilder) {
+        document.body.classList.add('bg-transparent');
+      }
+
+      const scriptSrc = isWorkflowBuilder ? '/src/embedded.tsx' : '/src/main.tsx';
+
+      const script = document.createElement('script');
+
+      script.type = 'module';
+      script.src = scriptSrc;
+
+      document.body.appendChild(script);
+    </script>
+
     <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
