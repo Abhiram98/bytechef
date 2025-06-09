@@ -26,7 +26,6 @@ public interface ConnectUserProjectWorkflowMapper extends Converter<ConnectUserP
     @Override
     @Mapping(target = "definition", source = "workflow.definition")
     @Mapping(target = "description", source = "workflow.description")
-    @Mapping(target = "inputs", ignore = true)
     @Mapping(target = "label", source = "workflow.label")
     WorkflowModel convert(ConnectUserProjectWorkflowDTO workflow);
 }
