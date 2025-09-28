@@ -206,7 +206,7 @@ public class ConnectUserProjectFacadeImpl implements ConnectUserProjectFacade {
 
         Project project = projectService.getProject(connectedUserProject.getProjectId());
 
-        List<ProjectWorkflow> latestProjectWorkflows = projectWorkflowService.getProjectWorkflows(
+        List<ProjectWorkflow> latestProjectWorkflows = projectWorkflowService.getConnectedUserProjectWorkflows(
             project.getId(), project.getLastVersion());
 
         List<String> latestWorkflowIds = latestProjectWorkflows.stream()

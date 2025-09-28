@@ -292,7 +292,7 @@ public class ProjectFacadeImpl implements ProjectFacade {
         Project project = projectService.getProject(id);
 
         return projectWorkflowService
-            .getProjectWorkflows(project.getId(), project.getLastVersion())
+            .getConnectedUserProjectWorkflows(project.getId(), project.getLastVersion())
             .stream()
             .map(projectWorkflow -> new ProjectWorkflowDTO(
                 workflowFacade.getWorkflow(projectWorkflow.getWorkflowId()), projectWorkflow))
@@ -310,13 +310,13 @@ public class ProjectFacadeImpl implements ProjectFacade {
     @Transactional(readOnly = true)
     public List<ProjectWorkflowDTO> getProjectVersionWorkflows(long id, int projectVersion, boolean includeAllFields) {
         if (includeAllFields) {
-            return projectWorkflowService.getProjectWorkflows(id, projectVersion)
+            return projectWorkflowService.getConnectedUserProjectWorkflows(id, projectVersion)
                 .stream()
                 .map(projectWorkflow -> new ProjectWorkflowDTO(
                     workflowFacade.getWorkflow(projectWorkflow.getWorkflowId()), projectWorkflow))
                 .toList();
         } else {
-            return projectWorkflowService.getProjectWorkflows(id, projectVersion)
+            return projectWorkflowService.getConnectedUserProjectWorkflows(id, projectVersion)
                 .stream()
                 .map(projectWorkflow -> new ProjectWorkflowDTO(
                     workflowService.getWorkflow(projectWorkflow.getWorkflowId()), projectWorkflow))
@@ -345,7 +345,7 @@ public class ProjectFacadeImpl implements ProjectFacade {
 
         int oldProjectVersion = project.getLastVersion();
 
-        List<ProjectWorkflow> oldProjectWorkflows = projectWorkflowService.getProjectWorkflows(
+        List<ProjectWorkflow> oldProjectWorkflows = projectWorkflowService.getConnectedUserProjectWorkflows(
             project.getId(), oldProjectVersion);
 
         int newProjectVersion = projectService.publishProject(id, description, syncWithGit);

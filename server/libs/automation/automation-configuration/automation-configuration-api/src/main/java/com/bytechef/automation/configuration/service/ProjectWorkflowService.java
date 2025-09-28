@@ -53,7 +53,7 @@ public interface ProjectWorkflowService {
 
     List<ProjectWorkflow> getProjectWorkflows(long projectId);
 
-    List<ProjectWorkflow> getProjectWorkflows(long projectId, int projectVersion);
+    List<ProjectWorkflow> getConnectedUserProjectWorkflows(long projectId, int projectVersion);
 
     List<ProjectWorkflow> getProjectWorkflows(Long projectId, String workflowReferenceCode);
 

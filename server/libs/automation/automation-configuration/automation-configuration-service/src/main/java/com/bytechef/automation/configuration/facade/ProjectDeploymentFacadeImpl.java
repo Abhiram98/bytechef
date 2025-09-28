@@ -267,7 +267,7 @@ public class ProjectDeploymentFacadeImpl implements ProjectDeploymentFacade {
     public ProjectDeploymentDTO getProjectDeployment(long id) {
         ProjectDeployment projectDeployment = projectDeploymentService.getProjectDeployment(id);
 
-        List<ProjectWorkflow> projectWorkflows = projectWorkflowService.getProjectWorkflows(
+        List<ProjectWorkflow> projectWorkflows = projectWorkflowService.getConnectedUserProjectWorkflows(
             projectDeployment.getProjectId(), projectDeployment.getProjectVersion());
         List<String> workflowIds = projectWorkflowService.getProjectWorkflowIds(
             projectDeployment.getProjectId(), projectDeployment.getProjectVersion());
@@ -378,7 +378,7 @@ public class ProjectDeploymentFacadeImpl implements ProjectDeploymentFacade {
             .getProjectDeploymentWorkflows(projectDeployment.getId());
 
         List<ProjectDeploymentWorkflow> projectDeploymentWorkflows = projectWorkflowService
-            .getProjectWorkflows(projectDeployment.getProjectId(), projectVersion)
+            .getConnectedUserProjectWorkflows(projectDeployment.getProjectId(), projectVersion)
             .stream()
             .map(curProjectWorkflow -> {
                 ProjectDeploymentWorkflow projectDeploymentWorkflow = new ProjectDeploymentWorkflow();
