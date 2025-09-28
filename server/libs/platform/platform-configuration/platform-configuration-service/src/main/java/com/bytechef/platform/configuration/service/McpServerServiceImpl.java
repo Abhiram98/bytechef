@@ -84,7 +84,7 @@ public class McpServerServiceImpl implements McpServerService {
     }
 
     @Override
-    public McpServer updateFromInput(long id, String name, ModeType type, Environment environment) {
+    public McpServer update(long id, String name, ModeType type, Environment environment) {
         McpServer existingMcpServer = fetchMcpServer(id)
             .orElseThrow(() -> new IllegalArgumentException("McpServer not found with id: " + id));
 

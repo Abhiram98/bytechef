@@ -82,6 +82,6 @@ public class McpServerGraphQlController {
             environment = Environment.valueOf((String) input.get("environment"));
         }
 
-        return mcpServerService.updateFromInput(id, name, type, environment);
+        return mcpServerService.update(id, name, type, environment);
     }
 }

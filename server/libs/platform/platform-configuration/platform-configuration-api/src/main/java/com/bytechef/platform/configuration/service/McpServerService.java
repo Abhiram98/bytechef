@@ -87,7 +87,7 @@ public interface McpServerService {
      * @return the updated MCP server
      * @throws IllegalArgumentException if the MCP server with the given ID is not found
      */
-    McpServer updateFromInput(long id, String name, ModeType type, Environment environment);
+    McpServer update(long id, String name, ModeType type, Environment environment);
 
     /**
      * Updates the tags of an MCP server.
