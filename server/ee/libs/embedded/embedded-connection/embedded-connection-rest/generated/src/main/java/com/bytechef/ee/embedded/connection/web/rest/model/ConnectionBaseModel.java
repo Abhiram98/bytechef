@@ -1,29 +1,23 @@
 package com.bytechef.ee.embedded.connection.web.rest.model;
 
-import java.net.URI;
 import java.util.Objects;
-import com.bytechef.ee.embedded.connection.web.rest.model.CredentialStatusModel;
+
 import com.bytechef.platform.tag.web.rest.model.TagModel;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.lang.Nullable;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
 
 
-import java.util.*;
 import jakarta.annotation.Generated;
 
 /**
@@ -37,7 +31,7 @@ public class ConnectionBaseModel {
 
   private @Nullable Boolean active;
 
-  private @Nullable String authorizationName;
+  private @Nullable String authorizationType;
 
   @Valid
   private Map<String, Object> authorizationParameters = new HashMap<>();
@@ -98,7 +92,7 @@ public class ConnectionBaseModel {
    * If a connection is used in any of active workflows.
    * @return active
    */
-  
+
   @Schema(name = "active", accessMode = Schema.AccessMode.READ_ONLY, description = "If a connection is used in any of active workflows.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("active")
   public Boolean getActive() {
@@ -110,7 +104,7 @@ public class ConnectionBaseModel {
   }
 
   public ConnectionBaseModel authorizationName(String authorizationName) {
-    this.authorizationName = authorizationName;
+    this.authorizationType = authorizationName;
     return this;
   }
 
@@ -118,15 +112,15 @@ public class ConnectionBaseModel {
    * The name of an authorization used by this connection. Used for HTTP based services.
    * @return authorizationName
    */
-  
+
   @Schema(name = "authorizationName", description = "The name of an authorization used by this connection. Used for HTTP based services.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("authorizationName")
   public String getAuthorizationName() {
-    return authorizationName;
+    return authorizationType;
   }
 
   public void setAuthorizationName(String authorizationName) {
-    this.authorizationName = authorizationName;
+    this.authorizationType = authorizationName;
   }
 
   public ConnectionBaseModel authorizationParameters(Map<String, Object> authorizationParameters) {
@@ -146,7 +140,7 @@ public class ConnectionBaseModel {
    * The authorization parameters of a connection.
    * @return authorizationParameters
    */
-  
+
   @Schema(name = "authorizationParameters", accessMode = Schema.AccessMode.READ_ONLY, description = "The authorization parameters of a connection.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("authorizationParameters")
   public Map<String, Object> getAuthorizationParameters() {
@@ -166,7 +160,7 @@ public class ConnectionBaseModel {
    * The name of a component that uses this connection.
    * @return componentName
    */
-  @NotNull 
+  @NotNull
   @Schema(name = "componentName", description = "The name of a component that uses this connection.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("componentName")
   public String getComponentName() {
@@ -194,7 +188,7 @@ public class ConnectionBaseModel {
    * The connection parameters of a connection.
    * @return connectionParameters
    */
-  
+
   @Schema(name = "connectionParameters", accessMode = Schema.AccessMode.READ_ONLY, description = "The connection parameters of a connection.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("connectionParameters")
   public Map<String, Object> getConnectionParameters() {
@@ -214,7 +208,7 @@ public class ConnectionBaseModel {
    * The version of a component that uses this connection.
    * @return connectionVersion
    */
-  @NotNull 
+  @NotNull
   @Schema(name = "connectionVersion", description = "The version of a component that uses this connection.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("connectionVersion")
   public Integer getConnectionVersion() {
@@ -234,7 +228,7 @@ public class ConnectionBaseModel {
    * The created by.
    * @return createdBy
    */
-  
+
   @Schema(name = "createdBy", accessMode = Schema.AccessMode.READ_ONLY, description = "The created by.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("createdBy")
   public String getCreatedBy() {
@@ -254,7 +248,7 @@ public class ConnectionBaseModel {
    * The created date.
    * @return createdDate
    */
-  @Valid 
+  @Valid
   @Schema(name = "createdDate", accessMode = Schema.AccessMode.READ_ONLY, description = "The created date.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("createdDate")
   public OffsetDateTime getCreatedDate() {
@@ -274,7 +268,7 @@ public class ConnectionBaseModel {
    * Get credentialStatus
    * @return credentialStatus
    */
-  @Valid 
+  @Valid
   @Schema(name = "credentialStatus", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("credentialStatus")
   public CredentialStatusModel getCredentialStatus() {
@@ -294,7 +288,7 @@ public class ConnectionBaseModel {
    * Get environment
    * @return environment
    */
-  @Valid 
+  @Valid
   @Schema(name = "environment", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("environment")
   public com.bytechef.platform.connection.web.rest.model.EnvironmentModel getEnvironment() {
@@ -314,7 +308,7 @@ public class ConnectionBaseModel {
    * The id of a connection.
    * @return id
    */
-  
+
   @Schema(name = "id", accessMode = Schema.AccessMode.READ_ONLY, description = "The id of a connection.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("id")
   public Long getId() {
@@ -334,7 +328,7 @@ public class ConnectionBaseModel {
    * The last modified by.
    * @return lastModifiedBy
    */
-  
+
   @Schema(name = "lastModifiedBy", accessMode = Schema.AccessMode.READ_ONLY, description = "The last modified by.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("lastModifiedBy")
   public String getLastModifiedBy() {
@@ -354,7 +348,7 @@ public class ConnectionBaseModel {
    * The last modified date.
    * @return lastModifiedDate
    */
-  @Valid 
+  @Valid
   @Schema(name = "lastModifiedDate", accessMode = Schema.AccessMode.READ_ONLY, description = "The last modified date.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("lastModifiedDate")
   public OffsetDateTime getLastModifiedDate() {
@@ -374,7 +368,7 @@ public class ConnectionBaseModel {
    * The name of a connection.
    * @return name
    */
-  @NotNull 
+  @NotNull
   @Schema(name = "name", description = "The name of a connection.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("name")
   public String getName() {
@@ -402,7 +396,7 @@ public class ConnectionBaseModel {
    * The parameters of a connection.
    * @return parameters
    */
-  @NotNull 
+  @NotNull
   @Schema(name = "parameters", description = "The parameters of a connection.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("parameters")
   public Map<String, Object> getParameters() {
@@ -430,7 +424,7 @@ public class ConnectionBaseModel {
    * Get tags
    * @return tags
    */
-  @Valid 
+  @Valid
   @Schema(name = "tags", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("tags")
   public List<@Valid TagModel> getTags() {
@@ -450,7 +444,7 @@ public class ConnectionBaseModel {
    * Get version
    * @return version
    */
-  
+
   @Schema(name = "__version", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("__version")
   public Integer getVersion() {
@@ -471,7 +465,7 @@ public class ConnectionBaseModel {
     }
     ConnectionBaseModel connectionBase = (ConnectionBaseModel) o;
     return Objects.equals(this.active, connectionBase.active) &&
-        Objects.equals(this.authorizationName, connectionBase.authorizationName) &&
+        Objects.equals(this.authorizationType, connectionBase.authorizationType) &&
         Objects.equals(this.authorizationParameters, connectionBase.authorizationParameters) &&
         Objects.equals(this.componentName, connectionBase.componentName) &&
         Objects.equals(this.connectionParameters, connectionBase.connectionParameters) &&
@@ -491,7 +485,7 @@ public class ConnectionBaseModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(active, authorizationName, authorizationParameters, componentName, connectionParameters, connectionVersion, createdBy, createdDate, credentialStatus, environment, id, lastModifiedBy, lastModifiedDate, name, parameters, tags, version);
+    return Objects.hash(active, authorizationType, authorizationParameters, componentName, connectionParameters, connectionVersion, createdBy, createdDate, credentialStatus, environment, id, lastModifiedBy, lastModifiedDate, name, parameters, tags, version);
   }
 
   @Override
@@ -499,7 +493,7 @@ public class ConnectionBaseModel {
     StringBuilder sb = new StringBuilder();
     sb.append("class ConnectionBaseModel {\n");
     sb.append("    active: ").append(toIndentedString(active)).append("\n");
-    sb.append("    authorizationName: ").append(toIndentedString(authorizationName)).append("\n");
+    sb.append("    authorizationName: ").append(toIndentedString(authorizationType)).append("\n");
     sb.append("    authorizationParameters: ").append(toIndentedString(authorizationParameters)).append("\n");
     sb.append("    componentName: ").append(toIndentedString(componentName)).append("\n");
     sb.append("    connectionParameters: ").append(toIndentedString(connectionParameters)).append("\n");
