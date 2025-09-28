@@ -36,7 +36,7 @@ import org.springframework.data.relational.core.mapping.Table;
  * @author Ivica Cardic
  */
 @Table
-public final class McpAction {
+public final class McpTool {
 
     @Id
     private Long id;
@@ -69,20 +69,20 @@ public final class McpAction {
     @Version
     private int version;
 
-    public McpAction() {
+    public McpTool() {
     }
 
-    public McpAction(Long id) {
+    public McpTool(Long id) {
         this.id = id;
     }
 
-    public McpAction(String name, Map<String, String> parameters, Long mcpComponentId) {
+    public McpTool(String name, Map<String, String> parameters, Long mcpComponentId) {
         this.name = name;
         this.parameters = new MapWrapper(parameters);
         this.mcpComponentId = AggregateReference.to(mcpComponentId);
     }
 
-    public McpAction(Long id, String name, Map<String, String> parameters, Long mcpComponentId) {
+    public McpTool(Long id, String name, Map<String, String> parameters, Long mcpComponentId) {
         this.id = id;
         this.name = name;
         this.parameters = new MapWrapper(parameters);
@@ -135,7 +135,7 @@ public final class McpAction {
             return false;
         }
 
-        McpAction mcpAction = (McpAction) o;
+        McpTool mcpAction = (McpTool) o;
 
         return Objects.equals(id, mcpAction.id);
     }

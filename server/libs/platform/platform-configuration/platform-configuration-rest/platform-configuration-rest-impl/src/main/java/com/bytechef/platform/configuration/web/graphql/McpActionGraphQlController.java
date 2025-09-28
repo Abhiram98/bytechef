@@ -17,7 +17,7 @@
 package com.bytechef.platform.configuration.web.graphql;
 
 import com.bytechef.atlas.coordinator.annotation.ConditionalOnCoordinator;
-import com.bytechef.platform.configuration.domain.McpAction;
+import com.bytechef.platform.configuration.domain.McpTool;
 import com.bytechef.platform.configuration.service.McpActionService;
 import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import java.util.List;
@@ -26,7 +26,7 @@ import org.springframework.graphql.data.method.annotation.QueryMapping;
 import org.springframework.stereotype.Controller;
 
 /**
- * GraphQL controller for managing {@link McpAction} entities.
+ * GraphQL controller for managing {@link McpTool} entities.
  *
  * @author Ivica Cardic
  */
@@ -42,18 +42,18 @@ public class McpActionGraphQlController {
     }
 
     @QueryMapping
-    public McpAction mcpAction(@Argument long id) {
+    public McpTool mcpAction(@Argument long id) {
         return mcpActionService.fetchMcpAction(id)
             .orElse(null);
     }
 
     @QueryMapping
-    public List<McpAction> mcpActions() {
+    public List<McpTool> mcpActions() {
         return mcpActionService.getMcpActions();
     }
 
     @QueryMapping
-    public List<McpAction> mcpActionsByComponentId(@Argument long mcpComponentId) {
+    public List<McpTool> mcpActionsByComponentId(@Argument long mcpComponentId) {
         return mcpActionService.getMcpActionsByComponentId(mcpComponentId);
     }
 }

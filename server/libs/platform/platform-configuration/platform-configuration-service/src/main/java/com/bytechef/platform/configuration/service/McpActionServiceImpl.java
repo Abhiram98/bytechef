@@ -17,7 +17,7 @@
 package com.bytechef.platform.configuration.service;
 
 import com.bytechef.commons.util.OptionalUtils;
-import com.bytechef.platform.configuration.domain.McpAction;
+import com.bytechef.platform.configuration.domain.McpTool;
 import com.bytechef.platform.configuration.repository.McpActionRepository;
 import java.util.List;
 import java.util.Optional;
@@ -40,13 +40,13 @@ public class McpActionServiceImpl implements McpActionService {
     }
 
     @Override
-    public McpAction create(McpAction mcpAction) {
+    public McpTool create(McpTool mcpAction) {
         return mcpActionRepository.save(mcpAction);
     }
 
     @Override
-    public McpAction update(McpAction mcpAction) {
-        McpAction currentMcpAction = OptionalUtils.get(mcpActionRepository.findById(mcpAction.getId()));
+    public McpTool update(McpTool mcpAction) {
+        McpTool currentMcpAction = OptionalUtils.get(mcpActionRepository.findById(mcpAction.getId()));
 
         currentMcpAction.setName(mcpAction.getName());
         // Skip updating parameters for now to avoid type casting issues
@@ -62,17 +62,17 @@ public class McpActionServiceImpl implements McpActionService {
     }
 
     @Override
-    public Optional<McpAction> fetchMcpAction(long mcpActionId) {
+    public Optional<McpTool> fetchMcpAction(long mcpActionId) {
         return mcpActionRepository.findById(mcpActionId);
     }
 
     @Override
-    public List<McpAction> getMcpActions() {
+    public List<McpTool> getMcpActions() {
         return mcpActionRepository.findAll();
     }
 
     @Override
-    public List<McpAction> getMcpActionsByComponentId(long mcpComponentId) {
+    public List<McpTool> getMcpActionsByComponentId(long mcpComponentId) {
         return mcpActionRepository.findAllByMcpComponentId(mcpComponentId);
     }
 }

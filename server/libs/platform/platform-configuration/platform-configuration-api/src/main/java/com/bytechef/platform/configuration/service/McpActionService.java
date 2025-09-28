@@ -16,12 +16,12 @@
 
 package com.bytechef.platform.configuration.service;
 
-import com.bytechef.platform.configuration.domain.McpAction;
+import com.bytechef.platform.configuration.domain.McpTool;
 import java.util.List;
 import java.util.Optional;
 
 /**
- * Service interface for managing {@link McpAction} entities.
+ * Service interface for managing {@link McpTool} entities.
  *
  * @author Ivica Cardic
  */
@@ -33,7 +33,7 @@ public interface McpActionService {
      * @param mcpAction the MCP action to create
      * @return the created MCP action
      */
-    McpAction create(McpAction mcpAction);
+    McpTool create(McpTool mcpAction);
 
     /**
      * Updates an existing MCP action.
@@ -41,7 +41,7 @@ public interface McpActionService {
      * @param mcpAction the MCP action to update
      * @return the updated MCP action
      */
-    McpAction update(McpAction mcpAction);
+    McpTool update(McpTool mcpAction);
 
     /**
      * Deletes an MCP action by ID.
@@ -56,14 +56,14 @@ public interface McpActionService {
      * @param mcpActionId the ID of the MCP action to fetch
      * @return the MCP action, or empty if not found
      */
-    Optional<McpAction> fetchMcpAction(long mcpActionId);
+    Optional<McpTool> fetchMcpAction(long mcpActionId);
 
     /**
      * Gets all MCP actions.
      *
      * @return a list of all MCP actions
      */
-    List<McpAction> getMcpActions();
+    List<McpTool> getMcpActions();
 
     /**
      * Gets all MCP actions for a specific MCP component.
@@ -71,5 +71,5 @@ public interface McpActionService {
      * @param mcpComponentId the ID of the MCP component
      * @return a list of MCP actions for the specified component
      */
-    List<McpAction> getMcpActionsByComponentId(long mcpComponentId);
+    List<McpTool> getMcpActionsByComponentId(long mcpComponentId);
 }
