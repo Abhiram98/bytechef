@@ -179,16 +179,16 @@ public class AttioUtils {
             .execute()
             .getBody(new TypeReference<>() {});
 
-        List<Option<String>> objectOptions = new ArrayList<>();
+        List<Option<String>> options = new ArrayList<>();
 
         for (Object object : objects.get(DATA)) {
             if (object instanceof Map<?, ?> objectMap) {
-                objectOptions.add(
+                options.add(
                     option((String) objectMap.get("singular_noun"), (String) objectMap.get("api_slug")));
             }
         }
 
-        return objectOptions;
+        return options;
     }
 
     public static List<Option<String>> getRecordIdOptions(
