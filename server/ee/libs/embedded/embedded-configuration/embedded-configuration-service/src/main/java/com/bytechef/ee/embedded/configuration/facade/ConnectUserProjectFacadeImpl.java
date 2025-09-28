@@ -26,7 +26,7 @@ import com.bytechef.commons.util.MapUtils;
 import com.bytechef.ee.embedded.configuration.domain.ConnectedUserProject;
 import com.bytechef.ee.embedded.configuration.domain.ConnectedUserProjectWorkflow;
 import com.bytechef.ee.embedded.configuration.domain.ConnectedUserProjectWorkflowConnection;
-import com.bytechef.ee.embedded.configuration.dto.ConnectUserProjectWorkflowDTO;
+import com.bytechef.ee.embedded.configuration.dto.ConnectedUserProjectWorkflowDTO;
 import com.bytechef.ee.embedded.configuration.service.ConnectedUserProjectService;
 import com.bytechef.ee.embedded.configuration.service.ConnectedUserProjectWorkflowService;
 import com.bytechef.ee.embedded.connected.user.domain.ConnectedUser;
@@ -182,7 +182,7 @@ public class ConnectUserProjectFacadeImpl implements ConnectUserProjectFacade {
     }
 
     @Override
-    public ConnectUserProjectWorkflowDTO getProjectWorkflow(
+    public ConnectedUserProjectWorkflowDTO getProjectWorkflow(
         String externalUserId, String workflowReferenceCode, Environment environment) {
 
         ConnectedUserProject connectedUserProject = checkConnectedUserProject(externalUserId, environment);
@@ -193,7 +193,7 @@ public class ConnectUserProjectFacadeImpl implements ConnectUserProjectFacade {
         ConnectedUserProjectWorkflow connectedUserProjectWorkflow = connectedUserProjectWorkflowService
             .getConnectedUserProjectWorkflow(connectedUserProject.getId(), projectWorkflow.getId());
 
-        return new ConnectUserProjectWorkflowDTO(
+        return new ConnectedUserProjectWorkflowDTO(
             connectedUserProject.getConnectedUserId(),
             isProjectDeploymentWorkflowEnabled(projectWorkflow, environment), projectWorkflow,
             workflowFacade.getWorkflow(projectWorkflow.getWorkflowId()),
@@ -201,7 +201,7 @@ public class ConnectUserProjectFacadeImpl implements ConnectUserProjectFacade {
     }
 
     @Override
-    public List<ConnectUserProjectWorkflowDTO> getProjectWorkflows(String externalUserId, Environment environment) {
+    public List<ConnectedUserProjectWorkflowDTO> getProjectWorkflows(String externalUserId, Environment environment) {
         ConnectedUserProject connectedUserProject = checkConnectedUserProject(externalUserId, environment);
 
         Project project = projectService.getProject(connectedUserProject.getProjectId());
@@ -224,7 +224,7 @@ public class ConnectUserProjectFacadeImpl implements ConnectUserProjectFacade {
                 ConnectedUserProjectWorkflow connectedUserProjectWorkflow = connectedUserProjectWorkflowService
                     .getConnectedUserProjectWorkflow(connectedUserProject.getId(), latestProjectWorkflow.getId());
 
-                return new ConnectUserProjectWorkflowDTO(
+                return new ConnectedUserProjectWorkflowDTO(
                     connectedUserProject.getConnectedUserId(),
                     isProjectDeploymentWorkflowEnabled(latestProjectWorkflow, environment), latestProjectWorkflow,
                     new WorkflowDTO(workflow, List.of(), List.of()), connectedUserProjectWorkflow.getWorkflowVersion());

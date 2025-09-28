@@ -15,11 +15,11 @@ import com.bytechef.platform.configuration.dto.WorkflowDTO;
  *
  * @author Ivica Cardic
  */
-public record ConnectUserProjectWorkflowDTO(
+public record ConnectedUserProjectWorkflowDTO(
     long connectedUserId, boolean enabled, long projectId, WorkflowDTO workflow, String workflowReferenceCode,
     Integer workflowVersion) {
 
-    public ConnectUserProjectWorkflowDTO(
+    public ConnectedUserProjectWorkflowDTO(
         long connectedUserId, boolean enabled, ProjectWorkflow projectWorkflow, WorkflowDTO workflow,
         Integer workflowVersion) {
 
