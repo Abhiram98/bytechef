@@ -99,7 +99,7 @@ public class AttioUtils {
     }
 
     public static List<Option<String>> getDealStageIdOptions(
-        Parameters inputParameters, Parameters connectionParameters, Map<String, String> stringStringMap, String s,
+        Parameters inputParameters, Parameters connectionParameters, Map<String, String> stringStringMap, String searchText,
         Context context) {
 
         Map<String, List<Object>> stages = context.http(
