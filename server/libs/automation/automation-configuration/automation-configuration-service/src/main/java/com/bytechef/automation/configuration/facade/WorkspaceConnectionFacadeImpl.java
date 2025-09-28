@@ -64,13 +64,13 @@ public class WorkspaceConnectionFacadeImpl implements WorkspaceConnectionFacade 
 
     @Override
     public List<ConnectionDTO> getConnections(
-        long workspaceId, String componentName, Integer connectionVersion, ConnectionEnvironment connectionEnvironment,
+        long workspaceId, String componentName, Integer connectionVersion, ConnectionEnvironment environment,
         Long tagId) {
 
         List<Long> connectionIds = CollectionUtils.map(
             workspaceConnectionService.getWorkspaceConnections(workspaceId), WorkspaceConnection::getConnectionId);
 
         return connectionFacade.getConnections(
-            componentName, connectionVersion, connectionIds, tagId, connectionEnvironment, ModeType.AUTOMATION);
+            componentName, connectionVersion, connectionIds, tagId, environment, ModeType.AUTOMATION);
     }
 }
