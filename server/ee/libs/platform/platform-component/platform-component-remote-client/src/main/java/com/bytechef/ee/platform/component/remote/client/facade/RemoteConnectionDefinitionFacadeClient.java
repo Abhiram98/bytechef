@@ -37,13 +37,13 @@ public class RemoteConnectionDefinitionFacadeClient extends AbstractWorkerClient
     @Override
     public Authorization.AuthorizationCallbackResponse executeAuthorizationCallback(
         String componentName, int connectionVersion, String authorizationName,
-        Map<String, ?> authorizationParams, String redirectUri) {
+        Map<String, ?> connectionParameters, String redirectUri) {
 
         return defaultRestClient.post(
             uriBuilder -> toUri(
                 uriBuilder, componentName, CONNECTION_DEFINITION_FACADE + "/execute-authorization-callback"),
             new AuthorizationCallbackRequest(
-                componentName, connectionVersion, authorizationName, authorizationParams, redirectUri),
+                componentName, connectionVersion, authorizationName, connectionParameters, redirectUri),
             Authorization.AuthorizationCallbackResponse.class);
     }
 
