@@ -45,7 +45,7 @@ public class WorkflowNodeTestOutput {
     private String componentOperationName;
 
     @Column("component_version")
-    private int componentVersion;
+    private int typeVersion;
 
     @CreatedBy
     @Column("created_by")
@@ -109,7 +109,7 @@ public class WorkflowNodeTestOutput {
     }
 
     public int getComponentVersion() {
-        return componentVersion;
+        return typeVersion;
     }
 
     public String getCreatedBy() {
@@ -165,7 +165,7 @@ public class WorkflowNodeTestOutput {
     }
 
     public void setComponentVersion(int componentVersion) {
-        this.componentVersion = componentVersion;
+        this.typeVersion = componentVersion;
     }
 
     public void setId(Long id) {
@@ -197,7 +197,7 @@ public class WorkflowNodeTestOutput {
         return "WorkflowTestNodeOutput{" +
             "componentName='" + componentName + '\'' +
             ", componentOperationName='" + componentOperationName + '\'' +
-            ", componentVersion=" + componentVersion +
+            ", componentVersion=" + typeVersion +
             ", createdBy='" + createdBy + '\'' +
             ", createdDate=" + createdDate +
             ", id=" + id +
