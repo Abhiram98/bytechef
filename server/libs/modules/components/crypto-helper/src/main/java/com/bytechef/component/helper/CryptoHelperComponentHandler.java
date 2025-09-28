@@ -22,14 +22,8 @@ import static com.bytechef.component.definition.ComponentDsl.tool;
 import com.bytechef.component.ComponentHandler;
 import com.bytechef.component.definition.ComponentCategory;
 import com.bytechef.component.definition.ComponentDefinition;
-import com.bytechef.component.helper.action.CryptoHelperHashAction;
-import com.bytechef.component.helper.action.CryptoHelperHmacAction;
-import com.bytechef.component.helper.action.CryptoHelperPGPDecryptAction;
-import com.bytechef.component.helper.action.CryptoHelperPGPEncryptAction;
-import com.bytechef.component.helper.action.CryptoHelperRSADecryptAction;
-import com.bytechef.component.helper.action.CryptoHelperRSAEncryptAction;
-import com.bytechef.component.helper.action.CryptoHelperSignAction;
-import com.bytechef.component.helper.action.CryptoHelperVerifyAction;
+import com.bytechef.component.helper.action.*;
+import com.bytechef.component.helper.action.CryptoHelperRsaDecryptAction;
 import com.google.auto.service.AutoService;
 
 /**
@@ -48,7 +42,7 @@ public class CryptoHelperComponentHandler implements ComponentHandler {
             CryptoHelperHmacAction.ACTION_DEFINITION,
             CryptoHelperPGPDecryptAction.ACTION_DEFINITION,
             CryptoHelperPGPEncryptAction.ACTION_DEFINITION,
-            CryptoHelperRSADecryptAction.ACTION_DEFINITION,
+            CryptoHelperRsaDecryptAction.ACTION_DEFINITION,
             CryptoHelperRSAEncryptAction.ACTION_DEFINITION,
             CryptoHelperSignAction.ACTION_DEFINITION,
             CryptoHelperVerifyAction.ACTION_DEFINITION)
@@ -57,7 +51,7 @@ public class CryptoHelperComponentHandler implements ComponentHandler {
             tool(CryptoHelperHmacAction.ACTION_DEFINITION),
             tool(CryptoHelperPGPDecryptAction.ACTION_DEFINITION),
             tool(CryptoHelperPGPEncryptAction.ACTION_DEFINITION),
-            tool(CryptoHelperRSADecryptAction.ACTION_DEFINITION),
+            tool(CryptoHelperRsaDecryptAction.ACTION_DEFINITION),
             tool(CryptoHelperRSAEncryptAction.ACTION_DEFINITION),
             tool(CryptoHelperSignAction.ACTION_DEFINITION),
             tool(CryptoHelperVerifyAction.ACTION_DEFINITION));
