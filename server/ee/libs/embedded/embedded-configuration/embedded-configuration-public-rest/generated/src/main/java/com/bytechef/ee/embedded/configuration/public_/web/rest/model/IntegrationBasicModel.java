@@ -1,21 +1,15 @@
 package com.bytechef.ee.embedded.configuration.public_.web.rest.model;
 
-import java.net.URI;
 import java.util.Objects;
-import com.bytechef.ee.embedded.configuration.public_.web.rest.model.CredentialStatusModel;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
 import org.springframework.lang.Nullable;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
 
 
-import java.util.*;
 import jakarta.annotation.Generated;
 
 /**
@@ -43,7 +37,7 @@ public class IntegrationBasicModel {
 
   private Boolean multipleInstances = false;
 
-  private @Nullable String title;
+  private @Nullable String name;
 
   public IntegrationBasicModel() {
     super();
@@ -69,7 +63,7 @@ public class IntegrationBasicModel {
    * The name of the integration's component.
    * @return componentName
    */
-  @NotNull 
+  @NotNull
   @Schema(name = "componentName", description = "The name of the integration's component.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("componentName")
   public String getComponentName() {
@@ -89,7 +83,7 @@ public class IntegrationBasicModel {
    * Get credentialStatus
    * @return credentialStatus
    */
-  @NotNull @Valid 
+  @NotNull @Valid
   @Schema(name = "credentialStatus", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("credentialStatus")
   public CredentialStatusModel getCredentialStatus() {
@@ -109,7 +103,7 @@ public class IntegrationBasicModel {
    * The description of a project.
    * @return description
    */
-  
+
   @Schema(name = "description", description = "The description of a project.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("description")
   public String getDescription() {
@@ -129,7 +123,7 @@ public class IntegrationBasicModel {
    * If an integration is enabled or not
    * @return enabled
    */
-  @NotNull 
+  @NotNull
   @Schema(name = "enabled", description = "If an integration is enabled or not", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("enabled")
   public Boolean getEnabled() {
@@ -149,7 +143,7 @@ public class IntegrationBasicModel {
    * The icon.
    * @return icon
    */
-  @NotNull 
+  @NotNull
   @Schema(name = "icon", description = "The icon.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("icon")
   public String getIcon() {
@@ -169,7 +163,7 @@ public class IntegrationBasicModel {
    * The id of an integration.
    * @return id
    */
-  
+
   @Schema(name = "id", description = "The id of an integration.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("id")
   public Long getId() {
@@ -189,7 +183,7 @@ public class IntegrationBasicModel {
    * The version of an integration.
    * @return integrationVersion
    */
-  
+
   @Schema(name = "integrationVersion", description = "The version of an integration.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("integrationVersion")
   public Integer getIntegrationVersion() {
@@ -209,7 +203,7 @@ public class IntegrationBasicModel {
    * If multiple instances of an integration are allowed or not.
    * @return multipleInstances
    */
-  @NotNull 
+  @NotNull
   @Schema(name = "multipleInstances", description = "If multiple instances of an integration are allowed or not.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("multipleInstances")
   public Boolean getMultipleInstances() {
@@ -221,7 +215,7 @@ public class IntegrationBasicModel {
   }
 
   public IntegrationBasicModel title(String title) {
-    this.title = title;
+    this.name = title;
     return this;
   }
 
@@ -229,15 +223,15 @@ public class IntegrationBasicModel {
    * The title of the integration's component.
    * @return title
    */
-  
+
   @Schema(name = "title", description = "The title of the integration's component.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("title")
   public String getTitle() {
-    return title;
+    return name;
   }
 
   public void setTitle(String title) {
-    this.title = title;
+    this.name = title;
   }
 
   @Override
@@ -257,12 +251,12 @@ public class IntegrationBasicModel {
         Objects.equals(this.id, integrationBasic.id) &&
         Objects.equals(this.integrationVersion, integrationBasic.integrationVersion) &&
         Objects.equals(this.multipleInstances, integrationBasic.multipleInstances) &&
-        Objects.equals(this.title, integrationBasic.title);
+        Objects.equals(this.name, integrationBasic.name);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(componentName, credentialStatus, description, enabled, icon, id, integrationVersion, multipleInstances, title);
+    return Objects.hash(componentName, credentialStatus, description, enabled, icon, id, integrationVersion, multipleInstances, name);
   }
 
   @Override
@@ -277,7 +271,7 @@ public class IntegrationBasicModel {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    integrationVersion: ").append(toIndentedString(integrationVersion)).append("\n");
     sb.append("    multipleInstances: ").append(toIndentedString(multipleInstances)).append("\n");
-    sb.append("    title: ").append(toIndentedString(title)).append("\n");
+    sb.append("    title: ").append(toIndentedString(name)).append("\n");
     sb.append("}");
     return sb.toString();
   }
