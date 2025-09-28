@@ -308,8 +308,8 @@ public class ConnectionDefinitionServiceImpl implements ConnectionDefinitionServ
 
         AuthorizationUrlFunction authorizationUrlFunction = OptionalUtils.orElse(
             authorization.getAuthorizationUrl(),
-            (connectionParameters, context1) -> getDefaultAuthorizationUrl(
-                connectionParameters));
+            (curConnectionParameters, context1) -> getDefaultAuthorizationUrl(
+                curConnectionParameters));
         ClientIdFunction clientIdFunction = OptionalUtils.orElse(
             authorization.getClientId(),
             (connectionParameters, context1) -> getDefaultClientId(connectionParameters));
